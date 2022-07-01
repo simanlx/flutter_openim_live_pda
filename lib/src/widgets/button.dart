@@ -157,8 +157,8 @@ class SimpleButton extends StatelessWidget {
   })  : icon = open
             ? 'assets/images/video_open.webp'
             : 'assets/images/video_close.webp',
-        width = open ? 28.w : 33.w,
-        height = open ? 26.h : 30.w,
+        width = open ? 36.w : 38.w,
+        height = open ? 34.h : 36.h,
         super(key: key);
 
   SimpleButton.back({

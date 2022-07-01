@@ -245,6 +245,16 @@ class _ControlsWidgetState extends State<ControlsWidget> {
             width: 36.w,
             child: _buildTurnCameraButton(),
           ),
+        if (widget.type == CallType.video)
+          Positioned(
+            right: 65.w,
+            top: 50.h,
+            width: 60.w,
+            child: SimpleButton.video(
+              open: participant?.isCameraEnabled() != false,
+              onTap: _toggleVideo,
+            ),
+          ),
         Positioned(
           bottom: 68.h,
           width: 1.sw,
