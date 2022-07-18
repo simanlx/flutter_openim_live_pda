@@ -57,6 +57,8 @@ class LiveClient {
     Future Function()? onTapPickup,
     Future Function()? onTapReject,
     Function()? onDisconnected,
+    Function()? startHx,
+    Function()? stopHx,
     Future Function(String userID)? syncUserInfo,
     Future Function(String groupID)? syncGroupInfo,
     Future Function(String groupID, List<String> memberIDList)?
@@ -86,7 +88,10 @@ class LiveClient {
                 onTapHangup: onTapHangup,
                 onTapReject: onTapReject,
                 onTapPickup: onTapPickup,
-                onClose: _close,
+                onClose: (){
+                  startHx?.call();
+                  _close();
+                },
                 syncUserInfo: syncUserInfo,
                 autoPickup: autoPickup,
                 onBindRoomID: (roomID) => currentRoomID = roomID,
@@ -109,7 +114,10 @@ class LiveClient {
                 onTapPickup: onTapPickup,
                 syncGroupInfo: syncGroupInfo,
                 syncGroupMemberInfo: syncGroupMemberInfo,
-                onClose: _close,
+                onClose: (){
+                  startHx?.call();
+                  _close();
+                },
                 onBindRoomID: (roomID) => currentRoomID = roomID,
               ));
       /*
